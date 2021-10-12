@@ -1,40 +1,33 @@
-<h1 align="center">
-    <a href="https://github.com/WolfSoftware">
-        <img src="https://raw.githubusercontent.com/WolfSoftware/branding/master/images/general/banners/64/black-and-white.png" alt="Wolf Software Logo" />
-    </a>
-    <br>
-    yaml-lint
-</h1>
-
 <p align="center">
+    <a href="https://github.com/CICDToolbox">
+        <img src="https://cdn.wolfsoftware.com/assets/images/github/organisations/cicdtoolbox/black-and-white-circle-256.png" alt="CICDToolbox Logo" />
+    </a>
+    <br />
     <a href="https://github.com/CICDToolbox/yaml-lint/actions/workflows/pipeline.yml">
-        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/yaml-lint/pipeline/master?logo=github&logoColor=white&style=for-the-badge" alt="Github Build Status">
-    </a>
-    <a href="https://travis-ci.com/CICDToolbox/yaml-lint">
-        <img src="https://img.shields.io/travis/com/CICDToolbox/yaml-lint/master?style=for-the-badge&logo=travis" alt="Travis Build Status">
+        <img src="https://img.shields.io/github/workflow/status/CICDToolbox/yaml-lint/pipeline/master?style=for-the-badge" alt="Github Build Status">
     </a>
     <a href="https://github.com/CICDToolbox/yaml-lint/releases/latest">
-        <img src="https://img.shields.io/github/v/release/CICDToolbox/yaml-lint?color=blue&style=for-the-badge&logo=github&logoColor=white&label=Latest%20Release" alt="Release">
+        <img src="https://img.shields.io/github/v/release/CICDToolbox/yaml-lint?color=blue&label=Latest%20Release&style=for-the-badge" alt="Release">
     </a>
     <a href="https://github.com/CICDToolbox/yaml-lint/releases/latest">
-        <img src="https://img.shields.io/github/commits-since/CICDToolbox/yaml-lint/latest.svg?color=blue&style=for-the-badge&logo=github&logoColor=white" alt="Commits since release">
+        <img src="https://img.shields.io/github/commits-since/CICDToolbox/yaml-lint/latest.svg?color=blue&style=for-the-badge" alt="Commits since release">
     </a>
-    <br>
+    <br />
     <a href=".github/CODE_OF_CONDUCT.md">
-        <img src="https://img.shields.io/badge/Code%20of%20Conduct-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Code%20of%20Conduct-blue?style=for-the-badge" />
     </a>
     <a href=".github/CONTRIBUTING.md">
-        <img src="https://img.shields.io/badge/Contributing-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Contributing-blue?style=for-the-badge" />
     </a>
     <a href=".github/SECURITY.md">
-        <img src="https://img.shields.io/badge/Report%20Security%20Concern-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Report%20Security%20Concern-blue?style=for-the-badge" />
     </a>
     <a href="https://github.com/CICDToolbox/yaml-lint/issues">
-        <img src="https://img.shields.io/badge/Get%20Support-blue?style=for-the-badge&logo=read-the-docs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Get%20Support-blue?style=for-the-badge" />
     </a>
-    <br>
-    <a href="https://github.com/TGWolf">
-        <img src="https://img.shields.io/badge/Created%20by%20Wolf-black?style=for-the-badge" />
+    <br />
+    <a href="https://wolfsoftware.com">
+        <img src="https://img.shields.io/badge/Created%20by%20Wolf%20Software-blue?style=for-the-badge" />
     </a>
 </p>
 
@@ -42,9 +35,9 @@
 
 A tool to lint your yaml files in CI/CD pipelines using [yaml-lint](https://rubygems.org/gems/yaml-lint).
 
-## Usage
+This tool has been written and tested using GitHub Actions but it should work out of the box with a lot of other CI/CD tools.
 
-### GitHub Actions
+## Usage
 
 ```yml
 on: [push, pull_request]
@@ -52,39 +45,51 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    - name: Set up Ruby 3.0
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.0
-    - name: Run YAML-Lint
-      run: wget --quiet -O - https://raw.githubusercontent.com/CICDToolbox/yaml-lint/master/pipeline.sh | bash
+    steps:
+      - name: Set up Ruby 3.0
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Run YAML-Lint
+        run: bash <(curl -s https://raw.githubusercontent.com/CICDToolbox/yaml-lint/master/pipeline.sh)
 ```
 
-### Travis CI
+### Other Options
+
+The following environment variables can be set in order to customise the script.
+
+| Name          | Purpose | Default Value |
+| ------------- | ------- | ------------- |
+| EXCLUDE_FILES | A comma separated list of files to exclude from being scanned. | Unset |
+| FLAGS         | Any command line options that are valid for awesome_bot. (You can also use 'FLAGS: "default" to use the default set of flags that we have defined, see below for more details.) | Unset |
+| REPORT_ONLY   | Generate the report but do not fail the build even if an error occurred. | False | 
+| SHOW_ERRORS   | Show the actual errors instead of just which files had errors. | False | 
+| WHITELIST     | A comma separated list of files to be excluded from being checked.  | Unset |
+
+You can use any combination of the above settings.
 
 ```yml
-language: ruby
-rvm: 3.0
+on: [push, pull_request]
 
-script:
-  - wget --quiet -O - https://raw.githubusercontent.com/CICDToolbox/yaml-lint/master/pipeline.sh | bash
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Ruby 3.0
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Run YAML-Lint
+        env:
+          REPORT_ONLY: true
+          SHOW_ERRORS: true
+        run: bash <(curl -s https://raw.githubusercontent.com/CICDToolbox/yaml-lint/master/pipeline.sh)
 ```
 
 ### Example Output
 
 This is an example of the output report generated by this tool, this is the actual output from the tool running against itself.
 ```
---------------------------------------------------------------------------------
-            Scanning all yaml code with yaml-lint (version: 0.0.10)
---------------------------------------------------------------------------------
- [  OK  ] Processing successful for .github/FUNDING.yml
- [  OK  ] Processing successful for .github/ISSUE_TEMPLATE/config.yml
- [  OK  ] Processing successful for .github/workflows/pipeline.yml
- [  OK  ] Processing successful for .travis.yml
- [  OK  ] Processing successful for stale.yml
---------------------------------------------------------------------------------
-                    Total: 5, OK: 5, Failed: 0, Skipped: 0
---------------------------------------------------------------------------------
 ```
 
 ### File Identification
@@ -95,11 +100,3 @@ Yaml files are identified using the following code:
 [[ ${filename} =~ \.(yml|yaml)$ ]]
 ```
 > There is not magic type for yaml files so file -b is of not use for identifying the files.
-
-## Show Support
-
-<p>
-	<a href="https://ko-fi.com/wolfsoftware">
-		<img src="https://img.shields.io/badge/Ko%20Fi-blue?style=for-the-badge&logo=ko-fi&logoColor=white" />
-	</a>
-</p>

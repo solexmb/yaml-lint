@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 
 This changelog was automatically generated using [Caretaker](https://github.com/DevelopersToolbox/caretaker) by [Wolf Software](https://github.com/WolfSoftware)
 
-### [v0.1.0](https://github.com/CICDToolbox/yaml-lint/releases/v0.1.0)
+### [Unreleased](https://github.com/CICDToolbox/yaml-lint/compare/v0.1.0...HEAD)
 
-> Released on June, 22nd 2021
+- update [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
 
-- The initial commit [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+- The initial commit [`[69907a4]`](https://github.com/CICDToolbox/yaml-lint/commit/69907a446032e724e7ac924da6d748a631e601ec)
 
