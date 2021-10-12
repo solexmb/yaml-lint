@@ -9,6 +9,8 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 - update [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
 
+- update [`[541627c]`](https://github.com/CICDToolbox/yaml-lint/commit/541627c955cf9a55bb1a5cfa415c01dc919a65d3)
+
 - update [`[ae158a1]`](https://github.com/CICDToolbox/yaml-lint/commit/ae158a157895f3b78dc6600aae278eb94530acf4)
 
 - The initial commit [`[69907a4]`](https://github.com/CICDToolbox/yaml-lint/commit/69907a446032e724e7ac924da6d748a631e601ec)
