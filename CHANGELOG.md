@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/CICDToolbox/yaml-lint/compare/v0.1.0...HEAD)
 
-- update readme [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+- shellcheck [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+
+- update readme [`[6e00947]`](https://github.com/CICDToolbox/yaml-lint/commit/6e009479af285c87bda1d11bf6b2648590fbd4a3)
 
 - update [`[de50c37]`](https://github.com/CICDToolbox/yaml-lint/commit/de50c375d254004e882ca5b2ae1c1842c6e2f343)
 
