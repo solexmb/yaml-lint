@@ -26,10 +26,10 @@ set -Eeuo pipefail
 # CURRENT_STAGE - The current stage used for the reporting output.                 #
 # -------------------------------------------------------------------------------- #
 
-GEM_NAME='yaml-lint'
-INSTALL_COMMAND="gem install --quiet ${GEM_NAME}"
+GEM_NAME='yamllint'
+INSTALL_COMMAND="pip install --quiet pur"
 
-TEST_COMMAND='yaml-lint'
+TEST_COMMAND='yamllint'
 FILE_TYPE_SEARCH_PATTERN='No Magic Pattern'
 FILE_NAME_SEARCH_PATTERN='\.(yml|yaml)$'
 
@@ -45,6 +45,8 @@ CURRENT_STAGE=0
 function install_prerequisites
 {
     stage "Install Prerequisites"
+
+    python -m pip install --quiet --upgrade pip
 
     if ! command -v ${TEST_COMMAND} &> /dev/null
     then
@@ -67,7 +69,7 @@ function install_prerequisites
 
 function get_version_information
 {
-    VERSION=$(gem list | grep "^${GEM_NAME} " | sed 's/[^0-9.]*\([0-9.]*\).*/\1/')
+    VERSION=$("${TEST_COMMAND}" --version | head -n 1 | sed 's/[^0-9.]*\([0-9.]*\).*/\1/')
     BANNER="Run ${TEST_COMMAND} (v${VERSION})"
 }
 
@@ -85,7 +87,7 @@ function check()
     file_count=$((file_count+1))
 
     # shellcheck disable=SC2086
-    if errors=$( ${TEST_COMMAND} "${filename}" ${FLAG_SET} 2>&1 ); then
+    if errors=$( ${TEST_COMMAND} -d relaxed "${filename}" ${FLAG_SET} 2>&1 ); then
         success "${filename}"
         ok_count=$((ok_count+1))
     else

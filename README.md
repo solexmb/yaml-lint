@@ -33,7 +33,7 @@
 
 ## Overview
 
-A tool to lint your yaml files in CI/CD pipelines using [yaml-lint](https://rubygems.org/gems/yaml-lint).
+A tool to lint your yaml files in CI/CD pipelines using [yamllint](https://pypi.org/project/yamllint/).
 
 This tool has been written and tested using GitHub Actions but it should work out of the box with a lot of other CI/CD tools.
 
@@ -113,3 +113,38 @@ Yaml files are identified using the following code:
 [[ ${filename} =~ \.(yml|yaml)$ ]]
 ```
 > There is not magic type for yaml files so file -b is of not use for identifying the files.
+
+## Yamllint Defaults
+
+This is a pre-defined configuration named relaxed. As its name suggests, it is more tolerant:
+
+```shell
+---
+extends: default
+
+rules:
+  braces:
+    level: warning
+    max-spaces-inside: 1
+  brackets:
+    level: warning
+    max-spaces-inside: 1
+  colons:
+    level: warning
+  commas:
+    level: warning
+  comments: disable
+  comments-indentation: disable
+  document-start: disable
+  empty-lines:
+    level: warning
+  hyphens:
+    level: warning
+  indentation:
+    level: warning
+    indent-sequences: consistent
+  line-length:
+    level: warning
+    allow-non-breakable-inline-mappings: true
+  truthy: disable
+```

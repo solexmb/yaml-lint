@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/CICDToolbox/yaml-lint/compare/v0.1.0...HEAD)
 
-- Make errors easier to see and default to showing errors [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+- Move over to python version which is still supported [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+
+- Make errors easier to see and default to showing errors [`[5146d8c]`](https://github.com/CICDToolbox/yaml-lint/commit/5146d8ca5dfb8761c9d33543ec4cf086459bfb48)
 
 - Make errors easier to see and default to showing errors [`[1f1a03e]`](https://github.com/CICDToolbox/yaml-lint/commit/1f1a03e657a34885b4127950c65567f31069e0d3)
 
