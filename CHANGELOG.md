@@ -9,6 +9,8 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 - Move over to python version which is still supported [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
 
+- Move over to python version which is still supported [`[732ae9c]`](https://github.com/CICDToolbox/yaml-lint/commit/732ae9ce3a3daab0f723d717b57f7cec1165b206)
+
 - Move over to python version which is still supported [`[b6df1ad]`](https://github.com/CICDToolbox/yaml-lint/commit/b6df1adf167d30e56f4213ee8b8aef43530d571e)
 
 - Make errors easier to see and default to showing errors [`[5146d8c]`](https://github.com/CICDToolbox/yaml-lint/commit/5146d8ca5dfb8761c9d33543ec4cf086459bfb48)

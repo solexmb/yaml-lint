@@ -17,7 +17,6 @@ set -Eeuo pipefail
 # -------------------------------------------------------------------------------- #
 # Global Variables                                                                 #
 # -------------------------------------------------------------------------------- #
-# GEM_NAME - The name of the Ruby Gem to install.                                  #
 # INSTALL_COMMAND - The command to execute to do the install.                      #
 # TEST_COMMAND - The command to execute to perform the test.                       #
 # FILE_TYPE_SEARCH_PATTERN - The pattern used to match file types.                 #
@@ -26,7 +25,6 @@ set -Eeuo pipefail
 # CURRENT_STAGE - The current stage used for the reporting output.                 #
 # -------------------------------------------------------------------------------- #
 
-GEM_NAME='yamllint'
 INSTALL_COMMAND="pip install --quiet pur"
 
 TEST_COMMAND='yamllint'
