@@ -9,6 +9,8 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 - Make errors easier to see and default to showing errors [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
 
+- Make errors easier to see and default to showing errors [`[1f1a03e]`](https://github.com/CICDToolbox/yaml-lint/commit/1f1a03e657a34885b4127950c65567f31069e0d3)
+
 - Fix find command [`[6a8bf87]`](https://github.com/CICDToolbox/yaml-lint/commit/6a8bf873cb59736ca93a2cba455fc4aae6ed8409)
 
 - Fix find command [`[db2e8c9]`](https://github.com/CICDToolbox/yaml-lint/commit/db2e8c936bf79f556a163f10d4c57483db87b58c)
