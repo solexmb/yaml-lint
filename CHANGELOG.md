@@ -7,7 +7,9 @@ This changelog was automatically generated using [Caretaker](https://github.com/
 
 ### [Unreleased](https://github.com/CICDToolbox/yaml-lint/compare/v0.1.0...HEAD)
 
-- Move to python version with config file [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+- Change the logic for skipping and showing skipped files [`[head]`](https://github.com/CICDToolbox/yaml-lint/commit/)
+
+- Move to python version with config file [`[14a35c9]`](https://github.com/CICDToolbox/yaml-lint/commit/14a35c9ba836fd5b11181455d2f4d378df03a614)
 
 - Move over to python version which is still supported [`[367a9d1]`](https://github.com/CICDToolbox/yaml-lint/commit/367a9d1515abc4746b216eab09510394f9fa9aac)
 
