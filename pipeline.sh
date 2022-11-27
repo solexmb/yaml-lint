@@ -5,7 +5,7 @@
 # -------------------------------------------------------------------------------- #
 # This script will locate and process all relevant files within the given git      #
 # repository. Errors will be stored and a final exit status used to show if a      #
-# failure occured during the processing.                                           #
+# failure occured during the processing..                                           #
 # -------------------------------------------------------------------------------- #
 
 # -------------------------------------------------------------------------------- #
